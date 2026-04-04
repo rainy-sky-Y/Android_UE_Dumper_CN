@@ -52,6 +52,7 @@ namespace UEMemory
 
         // adrp followed by ldr imm
         uintptr_t Decode_ADRP_LDR(uintptr_t adrp_address, uint32_t ldr_offset = 4);
+
     }  // namespace Arm64
 
 }  // namespace UEMemory

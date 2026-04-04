@@ -123,6 +123,8 @@ namespace UEMemory
 
             return (page_off + adrp_pc_rel + ldr_imm12);
         }
+
+
     }  // namespace Arm64
 
 }  // namespace UEMemory

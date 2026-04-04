@@ -116,24 +116,24 @@ public:
     {
         PATTERN_MAP_TYPE map_type = isEmulator() ? PATTERN_MAP_TYPE::ANY_R : PATTERN_MAP_TYPE::ANY_X;
 
-        std::string ida_pattern = "? ? 02 90 08 ? ? ? 08 FD DF 08 F3 03 01 2A F4 03 00 AA E8 04 00 36";
-        const int step = 0x24;
+        std::string ida_pattern = "F3 03 01 2A F4 03 00 AA E8 ? 00 36";
+        const int step = 0x18;
 
         /*GName解密*/
         int indices[8] = {};
         auto byte_array = Arm64::Decode_ADRP_ADD(findIdaPattern(map_type, ida_pattern, step));
-        vm_rpm_ptr((void*)(byte_array + 0x80), indices, sizeof(int) * 8);
+        vm_rpm_ptr((void *)(byte_array + 0x80), indices, sizeof(int) * 8);
         uint64_t GName =
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[0])) |
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[1])) << 8 |
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[2])) << 16 |
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[3])) << 24 |
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[4])) << 32 |
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[5])) << 40 |
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[6])) << 48 |
-            (uint64_t)vm_rpm_ptr<uint8_t>((void*)(byte_array + indices[7])) << 56;
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[0])) |
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[1])) << 8 |
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[2])) << 16 |
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[3])) << 24 |
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[4])) << 32 |
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[5])) << 40 |
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[6])) << 48 |
+            (uint64_t)vm_rpm_ptr<uint8_t>((void *)(byte_array + indices[7])) << 56;
 
-        return vm_rpm_ptr<uintptr_t>((void*)GName);
+        return vm_rpm_ptr<uintptr_t>((void *)GName);
     }
     uint8_t *GetNameEntry(int32_t id) const override
     {

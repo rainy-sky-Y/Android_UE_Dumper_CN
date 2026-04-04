@@ -23,6 +23,8 @@
 #include "UE/UEGameProfiles/Farlight.hpp"
 #include "UE/UEGameProfiles/Sfps2.hpp"
 #include "UE/UEGameProfiles/Valorant.hpp"
+#include "UE/UEGameProfiles/NRC.hpp"
+#include "UE/UEGameProfiles/PUBG.hpp"
 /*
 #include "UE/UEGameProfiles/BlackClover.hpp"
 #include "UE/UEGameProfiles/Dislyte.hpp"
@@ -55,6 +57,8 @@ std::vector<IGameProfile *> UE_Games = {
     new FarlightProfile(),
     new ShuishaProfile(),
     new ValorantProfile(),
+    new NRCProfile(),
+    new PUBGProfile(),
     /*
     new PESProfile(),
     new DislyteProfile(),

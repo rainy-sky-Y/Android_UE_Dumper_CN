@@ -509,6 +509,10 @@ int32_t UE_UStruct::GetSize() const
 UE_UClass UE_UStruct::StaticClass()
 {
     static auto obj = UEWrappers::GetObjects()->FindObject<UE_UClass>("Class CoreUObject.Struct");
+        if (!obj) {
+        // 尝试实际观察到的小写名称
+        obj = UEWrappers::GetObjects()->FindObject<UE_UClass>("Class CoreUObject.struct");
+    }
     return obj;
 }
 

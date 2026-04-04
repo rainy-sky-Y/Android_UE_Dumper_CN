@@ -27,6 +27,8 @@ project.
 * Arena Breakout(CN)
 * Farlight 84(CN)
 * 枪战特训2
+* 洛克王国世界
+* 和平精英
 
 ## Library Usage
 
